@@ -1,5 +1,9 @@
 name: continuous_integration
-on: ["push", "pull_request"]
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "*/15 * * * *"
 jobs:
   ping:
     runs-on: ubuntu-latest
