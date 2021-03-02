@@ -3,13 +3,16 @@
 import sys
 
 from selenium import webdriver
-
+from selenium.webdriver.firefox.options import Options
 
 def main():
     url = "https://www.old.korona.gov.sk/covid-19-vaccination-form.php"
     xpath = "/html/body/div[5]/form/div[1]/div[4]/button"
     exit_code = 0
-    driver = webdriver.Firefox()
+    options = Options()
+    options.log.level = "trace"
+    options.add_argument("--headless")  
+    driver = webdriver.Firefox(options=options)
     driver.implicitly_wait(5)
     driver.get(url)
     driver.refresh()
