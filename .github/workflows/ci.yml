@@ -11,16 +11,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
-          python-version: "3.7"
-      - name: Python info
-        run: |
-          which python
-          python --version
+          python-version: 3.8
+      - uses: s-weigand/setup-conda@v1
+        with:
+          activate-conda: true
+      - run: conda --version
+      - run: which python
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install selenium
-      - name: Show pip list
-        run: pip list
+        run: conda install -c conda-forge selenium geckodriver
       - name: Ping
         run: ./ping.py
