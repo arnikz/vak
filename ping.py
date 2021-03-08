@@ -10,7 +10,7 @@ def main():
     url = "https://www.old.korona.gov.sk/covid-19-vaccination-form.php"
     expr = "/html/body/div[5]/form/div[1]/div[4]/button"
     exit_code = 0
-    duration = 20
+    duration = 30
     options = Options()
     options.log.level = "trace"
     options.add_argument("--headless")  
