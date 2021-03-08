@@ -18,7 +18,7 @@ def main():
         driver.get(url)
         driver.implicitly_wait(duration)
         elem = driver.find_element_by_xpath(expr)
-        reg,n = elem.text.split("\n")
+        reg,n = elem.text.replace(" ", "").split("\n")
         if int(n) != 0:
             exit_code = 1
         print("{}: {}".format(reg, n))
